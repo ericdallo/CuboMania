@@ -1,0 +1,90 @@
+@font-face {
+	font-family: "Aleo";
+	src: url("../fonts/aleoBold.ttf");
+}
+
+@font-face {
+	font-family: "Lovelo";
+	src: url("../fonts/loveloBlack.otf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    font: 90%/1.3 arial, sans-serif;
+    padding: 1em;
+    background: white;
+}
+
+
+fieldset div {
+    margin: 0.3em 0;
+    clear: both;
+}
+form {
+    background: #fff;
+    padding: 1em;
+    border: 1px solid #eee;
+    margin-left: 10em;
+    margin-top: 5em;
+    width: 27em;
+}
+
+.formSelect {
+    background: #e2e2e2;
+    padding: 1em;
+    border: 1px solid black;
+    margin:3em auto;
+    width: 35em;
+    text-align: center;
+}
+
+.formSelect h3{
+	font-family:Aleo;
+	font-size:16pt;
+}
+
+.formSelect fieldset {
+    border: 1px solid #e2e2e2;
+    padding: 1em;
+}
+
+.formSelect label {
+	font-family:Lovelo;
+    float: left;
+    width: 8em;
+    height:100%;
+    margin:auto;
+    text-align: right;
+    
+}
+.formSelect select {
+	padding: 0.25em;
+    width: 12em;
+    margin:auto;
+    font-family:Aleo;
+    border: 1px solid white;
+    background: #fafafa;
+    font: bold 0.95em arial, sans-serif;
+    -moz-border-radius: 0.4em;
+    -khtml-border-radius: 0.4em;
+}
+
+.formSelect input {
+    padding: 0.5em 1em;
+    font-family: Lovelo;
+    font-size:13pt;
+    
+    border: 2px solid black;
+    background: #e2e2e2;
+    
+}
+
+.formSelect input:hover,input:focus {
+    border-color: black;
+    background: black;
+    color:white;
+    transition:400ms;
+}

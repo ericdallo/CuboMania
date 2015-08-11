@@ -1,0 +1,140 @@
+.top{
+	display:inherit;
+	width: 10em;
+	height: 5em;
+	position: fixed;	
+}
+
+.top .image{
+	float:left;
+	width: 3.5em;
+	height: 3.5em;
+	margin:0 0.5em;
+}
+.top .image img{
+	
+	width:3em;
+	height: 3em;
+	margin:auto;
+}
+.top .image img:hover{
+	transition:300ms;
+	transform:scale(1.45);
+}
+
+.tit{
+	width: 30%;
+	height:5em;
+	margin:auto;
+	display:inherit;
+	text-align: center;
+}
+
+.titResultado{
+	width:40%;
+	height:5em;
+	margin:auto;
+	display:inherit;
+	text-align: center;
+}
+
+.titulo{
+	display:inline;
+	width:100%;
+	font-size: 25pt;
+	padding:10px;
+  	text-align: center;
+  	font-family: Aleo;
+  	color: #212121;
+	baackground:white;
+	border:2px solid black;
+}
+
+.titulo img{	
+	width:1.5em;
+	height: 1.5em;
+	
+}
+
+.formres{
+	width:auto;
+	padding:inherit;
+	
+}
+div.img {
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #d0d0d0;
+    height: auto;
+    width: auto;
+    float: left;
+    text-align: center;
+}
+
+
+div.img img {
+    display: inline;
+    margin: 5px;
+    border: 1px solid #ffffff;
+    -webkit-transition: all 1s ease; /* Safari and Chrome */
+    -moz-transition: all 1s ease; /* Firefox */
+    -ms-transition: all 1s ease; /* IE 9 */
+    -o-transition: all 1s ease; /* Opera */
+    transition: all 1s ease;
+}
+
+div.img a:hover img {
+    border:1px solid #d0d0d0;
+    -webkit-transform:scale(1.10); /* Safari and Chrome */
+    -moz-transform:scale(1.10); /* Firefox */
+    -ms-transform:scale(1.10); /* IE 9 */
+    -o-transform:scale(1.10); /* Opera */
+     transform:scale(1.10);
+}
+
+div .desc {
+    text-align: left;
+    font-weight: normal;
+    font-family:Aleo;
+    width: 220px;
+    margin: 5px;
+}
+
+div .descQtd {
+    text-align: left;
+    font-weight: normal;
+    width: auto;
+    font-family:Aleo;
+    margin: 5px;
+}
+
+div .descInput{
+	margin:1px 1em;
+	border:1px solid #888888;
+	width: 3em;
+		
+}
+
+div .descAdd{
+	margin-left:0;
+	background:black;
+	color:white;
+	padding:0.6em;
+	border:2px solid black;
+	font-family:Lovelo;
+}
+
+div .descAdd:hover {
+	transition:600ms;
+	border-color: black;
+    background: white;
+    color:black;
+    
+}
+
+div.nome {
+    text-align: center;
+    font-weight: bold;
+    width: 220px;
+    margin: 5px;
+}

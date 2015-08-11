@@ -1,0 +1,131 @@
+@CHARSET "UTF-8";
+@font-face {
+	font-family: "Aleo";
+	src: url("../fonts/aleoBold.ttf");
+}
+
+@font-face {
+	font-family: "Lovelo";
+	src: url("../fonts/loveloBlack.otf");
+}
+
+
+.principal{
+	width:50%;
+	margin:auto;
+	margin-top:4em !important;
+	margin-bottom:2em !important;
+	text-align: center;
+	background:#e2e2e2;
+	padding:1.0em;
+	padding-bottom:2.5em;
+	border:2px solid #c2c2c2;	
+}
+h2{
+	font-family:Lovelo;
+	font-size:25pt;
+	
+}
+
+h1{
+	font-family: Aleo;
+	margin-bottom: 1em;
+}
+
+.add{
+	font-family:Lovelo;
+	padding:1em;
+	color:white;
+	text-decoration:none;
+	background:black;
+	border:1px solid #e2e2e2;
+}
+
+.add:hover{
+	transition:400ms;
+	color:black;
+	background:#e2e2e2;
+	border:1px solid black;
+}
+
+
+table, td,th{
+	border:2px solid black;
+	padding:0.5em;
+	border-collapse:collapse;
+	margin:auto;
+}
+
+.titulo{
+	font-family:Aleo;
+	font-size:16pt;
+}
+
+.itens{
+	font-family:Aleo;
+}
+
+.bt{
+	width:2em;
+	height:2em;
+	font-family:Lovelo;
+	margin:0 1em;
+	background:#e2e2e2;
+	border:1px solid black;	
+}
+
+input[type=checkbox]{
+	border:1px solid back;
+}
+
+h4{
+	font-family:Aleo;
+	font-size:16pt;
+}
+
+h3{
+	font-family:Aleo;
+	font-size:20pt;
+}
+
+div.fin{
+	width: 15%;
+	margin:auto;
+	
+}
+.finalizar{
+	font-family:Lovelo;
+	font-size:12pt;
+	margin:auto;
+	width:100%;
+	padding:1.3em;
+	color:white;
+	background:#872121;
+	text-decoration:none;
+	border:2px solid white;
+	
+}
+.finalizar:hover{
+	transition:400ms;
+	color:black;
+	background:white;
+	border:2px solid #872121;
+}
+
+div.image{
+	width: 3.5em;
+	height: 3.5em;
+	margin:2em auto;
+}
+.image img{
+	
+	width:3em;
+	height: 3em;
+	transition:300ms;
+	margin:auto;
+}
+.image img:hover{
+	transform:scale(1.45);
+}
+
+
