@@ -23,7 +23,7 @@ public class TipoCubos {
 		}
 	}
 	
-	public void alterar(TreeSet<Item> carrinho, String id){
+	public void alterar(List<Item> carrinho, String id){
 		Cubo cubo = buscarPorId(id);
 		
 		if (cubo != null){
@@ -56,7 +56,7 @@ public class TipoCubos {
 		return total;
 	}
 	
-	public void diminuirQtd(TreeSet<Item> carrinho,String id){
+	public void diminuirQtd(List<Item> carrinho,String id){
 		Cubo cubo = buscarPorId(id);
 		
 		for(Item outro: carrinho){
@@ -68,8 +68,9 @@ public class TipoCubos {
 		
 	}
 	
-	public void aumentarQtd(TreeSet<Item> carrinho,String id){
+	public void aumentarQtd(List<Item> carrinho,String id){
 		Cubo cubo = buscarPorId(id);
+		
 		for(Item item: carrinho){
 			
 			if(item.equals(cubo)){

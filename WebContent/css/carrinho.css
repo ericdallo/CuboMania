@@ -89,16 +89,15 @@ h3{
 }
 
 div.fin{
-	width: 15%;
-	margin:auto;
+	width: 35%;
+	margin:1em auto;
 	
 }
 .finalizar{
 	font-family:Lovelo;
 	font-size:12pt;
-	margin:auto;
+	padding:1.2em;
 	width:100%;
-	padding:1.3em;
 	color:white;
 	background:#872121;
 	text-decoration:none;

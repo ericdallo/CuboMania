@@ -1,8 +1,9 @@
 package com.cubomania.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Enumeration;
-import java.util.TreeSet;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,78 +16,73 @@ import javax.servlet.http.HttpSession;
 import com.cubomania.cubo.Item;
 import com.cubomania.cubo.TipoCubos;
 
-/**
- * Servlet implementation class AlterarCaririnho
- */
-@WebServlet("/alterar.do")
+@WebServlet("/alterar")
 public class AlterarCarrinho extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+	
+    private static final String DEL = "del";
+	private static final long serialVersionUID = 1L;
+    private static final int MENOS_LENGTH = 7;
+    private static final int MAIS_LENGTH = 6;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public AlterarCarrinho() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-    /**
-
-     */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
-    /**
-
-     */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         RequestDispatcher view;
 
-        TreeSet<Item> carrinho = (TreeSet<Item>) request.getSession().getAttribute("carrinho");
+        HttpSession session = req.getSession();
+        List<Item> carrinho = (ArrayList<Item>) session.getAttribute("carrinho");
 
-        Enumeration<String> param = request.getParameterNames();
+        Enumeration<String> param = req.getParameterNames();
         while(param.hasMoreElements()){
             String name = param.nextElement();
+            
             if(name.indexOf("btMenos") == 0){
-                boolean menos = request.getParameter(name) != null;
+                boolean menos = req.getParameter(name) != null;
                 if(menos){
-                    TipoCubos tip = new TipoCubos();
-
-                    tip.diminuirQtd(carrinho,name.substring( 7,(name.length()) ));
+                    TipoCubos tipo = new TipoCubos();
+                    String substring = name.substring( MENOS_LENGTH,(name.length()) );
+                    
+                    tipo.diminuirQtd(carrinho,substring);
                     session.setAttribute("carrinho", carrinho);
-                    view = request.getRequestDispatcher("carrinho.jsp");
-                    view.forward(request, response);
+                    
+                    view = req.getRequestDispatcher("WEB-INF/carrinho.jsp");
+                    view.forward(req, res);
                     return;
                 }
             }else if(name.indexOf("btMais") == 0){
-                boolean mais = request.getParameter(name) != null;
+                boolean mais = req.getParameter(name) != null;
                 if(mais){
-                    TipoCubos tip = new TipoCubos();
-                    tip.aumentarQtd(carrinho,name.substring( 6,(name.length()) ));
+                    String substring = name.substring( MAIS_LENGTH,(name.length()) );
+                    TipoCubos tipo = new TipoCubos();
+                    tipo.aumentarQtd(carrinho,substring);
+                    
                     session.setAttribute("carrinho", carrinho);
-                    view = request.getRequestDispatcher("carrinho.jsp");
-                    view.forward(request, response);
+                    
+                    view = req.getRequestDispatcher("WEB-INF/carrinho.jsp");
+                    view.forward(req, res);
                     return;
                 }
             }
         }
 
-        String acao = request.getParameter("acao");
+        String acao = req.getParameter("acao");
         switch (acao){
             case "Esvaziar Carrinho":
                 session.removeAttribute("carrinho");
                 break;
             case "Remover Selecionados":
-                Enumeration<String> parametros = request.getParameterNames();
+            	
+                Enumeration<String> parametros = req.getParameterNames();
                 while(parametros.hasMoreElements()){
                     String name = parametros.nextElement();
-                    if(name.indexOf("del") == 0){
-                        boolean todelete = request.getParameter(name) != null;
-                        if(todelete){
-                            TipoCubos tip = new TipoCubos();
-                            tip.alterar(carrinho,name.substring( 3,(name.length()) ));
+                    if(name.indexOf(DEL) == 0){
+                        boolean toDelete = req.getParameter(name) != null;
+                        if(toDelete){
+                            TipoCubos tipo = new TipoCubos();
+                            String substring = name.substring( 3,(name.length()) );
+							tipo.alterar(carrinho,substring);
                         }
 
 
@@ -96,12 +92,12 @@ public class AlterarCarrinho extends HttpServlet {
                 session.setAttribute("carrinho", carrinho);
                 break;
             case "Finalizar Compra":
-                view = request.getRequestDispatcher("compra.jsp");
-                view.forward(request, response);
+                view = req.getRequestDispatcher("WEB-INF/compra.jsp");
+                view.forward(req, res);
                 return;
         }
-        view = request.getRequestDispatcher("carrinho.jsp");
-        view.forward(request, response);
+        view = req.getRequestDispatcher("WEB-INF/carrinho.jsp");
+        view.forward(req, res);
 
     }
 

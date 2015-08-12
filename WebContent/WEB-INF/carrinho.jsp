@@ -1,5 +1,3 @@
-<%@ page import="java.util.*"%>
-<%@page import="com.cubomania.cubo.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -17,8 +15,9 @@
 		<h2>Carrinho de Compras</h2>
 		<c:if test="${empty carrinho}">
 			<h1>Carrinho Vazio!</h1>
-			<a class='add' href='selecao.do'>Adicionar Itens</a>
+			<a class='add' href='lista'>Adicionar Itens</a>
 		</c:if>
+		<c:if test="${not empty carrinho}">
 		<form action="alterar" method="POST">
 			<table>
 				<tr class='titulo'>
@@ -48,9 +47,12 @@
 			
 			<input type="submit" class='add' name='acao' value="Esvaziar Carrinho"/>
 			<input type="submit" class='add' name='acao' value="Remover Selecionados"/>
-			<div class='fin'><input type='submit' class='finalizar' name='acao' value='Finalizar Compra' /></div>
+			<div class='fin'>
+				<input type='submit' class='finalizar' name='acao' value='Finalizar Compra' />
+			</div>
 			
 		</form>
+		</c:if>
 
 	</div>
 	<div class='image'>

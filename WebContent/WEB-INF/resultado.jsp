@@ -10,20 +10,23 @@
 <title>Guia de Cubos</title>
 </head>
 <body>
-	<div class='top'>
-		<div class='image'>
-			<a href="index.jsp"><img src="./img/back.png" /></a>
-		</div>
-		<div class='image'>
-			<a href="carrinho.jsp"><img src="./img/shop.png" /></a>
-		</div>
-	</div>
 	<div class='titResultado'>
 		<h2 class='titulo'>
 			<img src="./img/blackCube.png" /> Cubos Recomendados
 		</h2>
 	</div>
 	<form action="adicionar" method="POST" class="formres">
+	<div class='top'>
+		<div class='image'>
+			<a href="index.jsp"><img src="./img/back.png" /></a>
+			
+		</div>
+		<div class='image'>
+			
+			<input type='image' value='Adicionar' src="./img/shop.png"/>
+		</div>
+	</div>
+	
 		<c:forEach items="${listaCubos}" var="c">
 			<div class="img">
 				<div class="nome">${c.nome}</div>
@@ -40,6 +43,7 @@
 				<div><input class='descAdd' type='submit' value='Adicionar'/></div>
 			</div>
 		</c:forEach>
+		
 	</form>
 </body>
 </html>

@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.TreeSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cubomania.cubo.Item;
 import com.cubomania.cubo.TipoCubos;
@@ -24,9 +24,9 @@ public class AdicionarCubo extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException ,IOException {
 		
 		req.setCharacterEncoding("UTF-8");
+		HttpSession session = req.getSession(); //para passar ao AlterarCarrinho
 		
-		
-		List<Item> carrinho = (ArrayList<Item>) req.getAttribute("carrinho");
+		List<Item> carrinho = (ArrayList<Item>) session.getAttribute("carrinho");
 		if (carrinho == null)
 			carrinho = new ArrayList<Item>();
 		
@@ -50,8 +50,8 @@ public class AdicionarCubo extends HttpServlet {
 			precoTotal += it.getCubo().getPreco() * it.getQuantidade();
 		}
 		
-		req.setAttribute("total",precoTotal);
-		req.setAttribute("carrinho", carrinho);
+		session.setAttribute("total",precoTotal);
+		session.setAttribute("carrinho", carrinho);
 		
 		RequestDispatcher view = req.getRequestDispatcher("WEB-INF/carrinho.jsp");
 		view.forward(req, res);
