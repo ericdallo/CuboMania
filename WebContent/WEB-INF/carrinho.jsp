@@ -27,16 +27,16 @@
 					<th>X</th>
 				</tr>
 				
-				<c:forEach items="${carrinho}" var="car">
+				<c:forEach items="${carrinho}" var="it">
 					<tr class='itens'>
-						<td>${car.cubo.nome}</td>
+						<td>${it.cubo.nome}</td>
 						<td>
-							<input type='submit' class='bt' name='btMenos${car.cubo.id}' value='-'/>
-							${car.quantidade}
-							<input type='submit' class='bt' name='btMais${car.cubo.id}' value='+'/>
+							<input type='submit' class='bt' name='btMenos${it.cubo.id}' value='-'/>
+							${it.quantidade}
+							<input type='submit' class='bt' name='btMais${it.cubo.id}' value='+'/>
 						</td>
-						<td> ${car.cubo.preco * car.quantidade}</td>
-						<td><input type='checkbox' name='del${car.cubo.id}'/></td>
+						<td> ${it.cubo.preco * it.quantidade}</td>
+						<td><input type='checkbox' name='del${it.cubo.id}'/></td>
 					</tr>
 						
 				</c:forEach>

@@ -18,12 +18,13 @@
 	<form action="adicionar" method="POST" class="formres">
 	<div class='top'>
 		<div class='image'>
-			<a href="index.jsp"><img src="./img/back.png" /></a>
+			<a href="index.jsp"><img src="img/back.png" /></a>
 			
 		</div>
 		<div class='image'>
-			
-			<input type='image' value='Adicionar' src="./img/shop.png"/>
+			<c:if test="${not empty carrinho }">
+				<input type='submit' class='bt-car' value=""/>
+			</c:if>
 		</div>
 	</div>
 	

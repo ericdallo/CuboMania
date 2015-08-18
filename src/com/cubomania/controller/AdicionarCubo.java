@@ -26,7 +26,7 @@ public class AdicionarCubo extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		HttpSession session = req.getSession(); //para passar ao AlterarCarrinho
 		
-		List<Item> carrinho = (ArrayList<Item>) session.getAttribute("carrinho");
+		ArrayList<Item> carrinho = (ArrayList<Item>) session.getAttribute("carrinho");
 		if (carrinho == null)
 			carrinho = new ArrayList<Item>();
 		
