@@ -20,6 +20,7 @@ import com.cubomania.dao.CubeDAO;
 public class CubeService extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
+	private final static String IMAGES_URL = "http://ec2-52-24-4-97.us-west-2.compute.amazonaws.com:8080/CuboMania/img/";
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -31,6 +32,7 @@ public class CubeService extends HttpServlet{
 		
 		CubeDAO cubeDAO = new CubeDAO();
 		List<Cube> cubesList = cubeDAO.carregarAll();
+		setImagesUrl(cubesList);
 		
 		try {
 			json.put("cubes", cubesList);
@@ -38,6 +40,12 @@ public class CubeService extends HttpServlet{
 		} catch (JSONException e) {
 			e.printStackTrace();
 			res.setStatus(HttpServletResponse.SC_NO_CONTENT);
+		}
+	}
+
+	private void setImagesUrl(List<Cube> cubesList) {
+		for (Cube cube : cubesList) {
+			cube.setImagem(IMAGES_URL+cube.getImagem());
 		}
 	}
 
