@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cubomania.cubo.Cubo;
+import com.cubomania.cubo.Cube;
 
-public class CuboDAO{
+public class CubeDAO{
 	
 	private Connection conn;
 	private AcessoBD bd;
 	
-	public CuboDAO(){
+	public CubeDAO(){
 		try{
 			bd = new AcessoBD();
 			conn = bd.obtemConexao();
@@ -65,13 +65,13 @@ public class CuboDAO{
 		}
 		
 	}
-	public List<Cubo> carregarAll(){
+	public List<Cube> carregarAll(){
 		String sql = "SELECT * FROM cubo ORDER BY id";
-		List<Cubo> lista = new ArrayList<Cubo>();
+		List<Cube> lista = new ArrayList<Cube>();
 		try (PreparedStatement st = conn.prepareStatement(sql); ResultSet rs = st.executeQuery()){
 			
 			while(rs.next()){
-				Cubo cubo = new Cubo();
+				Cube cubo = new Cube();
 				cubo.setId(rs.getInt(1));
 				cubo.setNome(rs.getString(2));
 				cubo.setTamanho(rs.getString(3));
@@ -90,10 +90,10 @@ public class CuboDAO{
 	
 	
 
-	public Cubo selecionarId(String id) {
+	public Cube selecionarId(String id) {
 		String query = "SELECT * FROM cubo WHERE id = ?";
 		
-		Cubo cubo = new Cubo();
+		Cube cubo = new Cube();
 		try (PreparedStatement st = conn.prepareStatement(query)){
 			st.setString(1, id);
 			ResultSet rs = st.executeQuery();

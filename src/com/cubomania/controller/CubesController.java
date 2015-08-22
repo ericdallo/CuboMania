@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.cubomania.cubo.Cubo;
-import com.cubomania.cubo.TipoCubos;
+import com.cubomania.cubo.Cube;
+import com.cubomania.cubo.CubeType;
 
 @WebServlet("/lista")
-public class CubosController extends HttpServlet {
+public class CubesController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request,
@@ -26,8 +26,8 @@ public class CubosController extends HttpServlet {
 		
 		req.setCharacterEncoding("UTF-8");
 		
-		TipoCubos tipos = new TipoCubos();
-		List<Cubo> lista = tipos.todos();
+		CubeType tipos = new CubeType();
+		List<Cube> lista = tipos.todos();
 		
 		req.setAttribute("listaCubos", lista);
 		

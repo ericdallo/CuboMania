@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cubomania.cubo.Item;
-import com.cubomania.cubo.TipoCubos;
+import com.cubomania.cubo.CubeType;
 
 @WebServlet("/adicionar")
-public class AdicionarCubo extends HttpServlet {
+public class AddCube extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +30,7 @@ public class AdicionarCubo extends HttpServlet {
 		if (carrinho == null)
 			carrinho = new ArrayList<Item>();
 		
-		TipoCubos tipo = new TipoCubos();
+		CubeType tipo = new CubeType();
 		
 		Enumeration<String> params = req.getParameterNames();
 		while(params.hasMoreElements()) {

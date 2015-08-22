@@ -1,6 +1,6 @@
 package com.cubomania.cubo;
 
-public class Cubo implements Comparable<Cubo> {
+public class Cube implements Comparable<Cube> {
 	
 	private int id;
 	private String nome;
@@ -19,7 +19,7 @@ public class Cubo implements Comparable<Cubo> {
 		this.preco = preco;
 	}
 
-	public Cubo(int id,String nome, String tamanho,String tipo, String dificuldade, String imagem,double preco) {
+	public Cube(int id,String nome, String tamanho,String tipo, String dificuldade, String imagem,double preco) {
 		this.id = id;
 		this.nome = nome;
 		this.tamanho = tamanho;
@@ -29,7 +29,7 @@ public class Cubo implements Comparable<Cubo> {
 		this.preco = preco;
 	} 
 	
-	public Cubo() {
+	public Cube() {
 	}
 
 	public int getId() {
@@ -94,7 +94,7 @@ public class Cubo implements Comparable<Cubo> {
 	}
 
 	@Override
-	public int compareTo(Cubo cubo) {
+	public int compareTo(Cube cubo) {
 		if (nome.equals(cubo.getNome())	&& tamanho.equals(cubo.getTamanho()) && dificuldade.equals(cubo.getDificuldade())
 				&& tipo.equals(cubo.getTipo())) {
 			return 0;

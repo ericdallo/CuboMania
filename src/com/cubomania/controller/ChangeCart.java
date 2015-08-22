@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.cubomania.cubo.Item;
-import com.cubomania.cubo.TipoCubos;
+import com.cubomania.cubo.CubeType;
 
 @WebServlet("/alterar")
-public class AlterarCarrinho extends HttpServlet {
+public class ChangeCart extends HttpServlet {
 	
     private static final String DEL = "del";
 	private static final long serialVersionUID = 1L;
@@ -41,7 +41,7 @@ public class AlterarCarrinho extends HttpServlet {
             if(name.indexOf("btMenos") == 0){
                 boolean menos = req.getParameter(name) != null;
                 if(menos){
-                    TipoCubos tipo = new TipoCubos();
+                    CubeType tipo = new CubeType();
                     String substring = name.substring( MENOS_LENGTH,(name.length()) );
                     
                     tipo.diminuirQtd(carrinho,substring);
@@ -55,7 +55,7 @@ public class AlterarCarrinho extends HttpServlet {
                 boolean mais = req.getParameter(name) != null;
                 if(mais){
                     String substring = name.substring( MAIS_LENGTH,(name.length()) );
-                    TipoCubos tipo = new TipoCubos();
+                    CubeType tipo = new CubeType();
                     tipo.aumentarQtd(carrinho,substring);
                     
                     session.setAttribute("carrinho", carrinho);
@@ -80,7 +80,7 @@ public class AlterarCarrinho extends HttpServlet {
                     if(name.indexOf(DEL) == 0){
                         boolean toDelete = req.getParameter(name) != null;
                         if(toDelete){
-                            TipoCubos tipo = new TipoCubos();
+                            CubeType tipo = new CubeType();
                             String substring = name.substring( 3,(name.length()) );
 							tipo.alterar(carrinho,substring);
                         }

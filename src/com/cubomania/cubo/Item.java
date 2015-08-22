@@ -6,19 +6,19 @@ public class Item implements Comparable<Item>, Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Cubo cubo;
+	private Cube cubo;
 	private int quantidade;
 	
-	public Item(Cubo cubo, int quantidade) {
+	public Item(Cube cubo, int quantidade) {
 		this.cubo = cubo;
 		this.quantidade = quantidade;
 	}
 
-	public Cubo getCubo() {
+	public Cube getCubo() {
 		return cubo;
 	}
 
-	public void setCubo(Cubo cubo) {
+	public void setCubo(Cube cubo) {
 		this.cubo = cubo;
 	}
 
@@ -31,7 +31,7 @@ public class Item implements Comparable<Item>, Serializable{
 	}
 	
 	
-	public boolean equals(Cubo obj) {
+	public boolean equals(Cube obj) {
 		if (this.cubo.getId() == obj.getId())
 			return true;
 		return false;

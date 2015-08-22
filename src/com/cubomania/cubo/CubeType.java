@@ -3,13 +3,13 @@ package com.cubomania.cubo;
 import java.util.List;
 import java.util.TreeSet;
 
-import com.cubomania.dao.CuboDAO;
+import com.cubomania.dao.CubeDAO;
 
 
-public class TipoCubos {
+public class CubeType {
 	
 	public void adicionar(List<Item> carrinho, String id, int quantidade){
-		Cubo cubo = buscarPorId(id);
+		Cube cubo = buscarPorId(id);
 		if (cubo != null){
 			Item item = new Item(cubo, quantidade);
 			//se nao adicionar, pq ja existe, soma na quantidade
@@ -24,7 +24,7 @@ public class TipoCubos {
 	}
 	
 	public void alterar(List<Item> carrinho, String id){
-		Cubo cubo = buscarPorId(id);
+		Cube cubo = buscarPorId(id);
 		
 		if (cubo != null){
 			Item item = new Item(cubo, 0);
@@ -37,27 +37,27 @@ public class TipoCubos {
 		}
 	}
 	
-	private Cubo buscarPorId(String id) {
-		CuboDAO dao = new CuboDAO();
+	private Cube buscarPorId(String id) {
+		CubeDAO dao = new CubeDAO();
 		return dao.selecionarId(id);
 	}
 
 
-	public List<Cubo> todos() {
-		return new CuboDAO().carregarAll();
+	public List<Cube> todos() {
+		return new CubeDAO().carregarAll();
 	}
 	
-	public double calculaTotal(TreeSet<Cubo> carrinho){
+	public double calculaTotal(TreeSet<Cube> carrinho){
 		double total = 0.0;
 		
-		for(Cubo cubo : carrinho)
+		for(Cube cubo : carrinho)
 			total += cubo.getQuantidade()*cubo.getPreco();
 		
 		return total;
 	}
 	
 	public void diminuirQtd(List<Item> carrinho,String id){
-		Cubo cubo = buscarPorId(id);
+		Cube cubo = buscarPorId(id);
 		
 		for(Item outro: carrinho){
 			if(outro.equals(cubo) && outro.getQuantidade() > 0){
@@ -69,7 +69,7 @@ public class TipoCubos {
 	}
 	
 	public void aumentarQtd(List<Item> carrinho,String id){
-		Cubo cubo = buscarPorId(id);
+		Cube cubo = buscarPorId(id);
 		
 		for(Item item: carrinho){
 			
