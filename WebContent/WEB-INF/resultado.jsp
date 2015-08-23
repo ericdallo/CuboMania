@@ -32,7 +32,7 @@
 			<div class="img">
 				<div class="nome">${c.nome}</div>
 				<a target='_blank' href="">
-					<img alt="${c.nome}" src='<c:url value="img/${c.imagem}.jpg"/>' width="210" height="210"/>
+					<img alt="${c.nome}" src='<c:url value="img/${c.imagem}.png"/>' width="210" height="210"/>
 				</a>
 				<div class='desc'>Tamanho: ${c.tamanho}</div>
 				<div class='desc'>Dificuldade: ${c.dificuldade}</div>

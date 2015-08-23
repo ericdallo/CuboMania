@@ -19,7 +19,7 @@ import com.cubomania.dao.CubeDAO;
 @WebServlet("/lista.json")
 public class CubeService extends HttpServlet{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 	private final static String IMAGES_URL = "http://ec2-52-24-4-97.us-west-2.compute.amazonaws.com:8080/CuboMania/img/";
 	
 	@Override
@@ -45,7 +45,7 @@ public class CubeService extends HttpServlet{
 
 	private void setImagesUrl(List<Cube> cubesList) {
 		for (Cube cube : cubesList) {
-			cube.setImagem(IMAGES_URL+cube.getImagem());
+			cube.setImagem(IMAGES_URL+cube.getImagem()+".png");
 		}
 	}
 
