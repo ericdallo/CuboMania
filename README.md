@@ -1,3 +1,3 @@
 # CuboMania
 
-### Projeto Web de sites de venda de cubos
+### Projeto Web de site de venda de cubos
